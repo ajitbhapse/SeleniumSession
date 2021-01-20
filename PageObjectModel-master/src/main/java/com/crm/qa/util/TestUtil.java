@@ -13,7 +13,7 @@ import com.google.gson.JsonSyntaxException;
 public class TestUtil {
 	
 	
-	public static final String TESTDATA_FOLDER_PATH = "C:\\Users\\abhapse\\Downloads\\PageObjectModel-master\\src\\main\\resources\\testdata\\";
+	public static final String TESTDATA_FOLDER_PATH = "C:\\Azure_Devops\\PageObjectModel-master\\src\\main\\resources\\testdata\\";
 	//Method to read test data for test case.
 	public static Map<String,String> getTestData(String filePath, String elementName) {
 		JsonElement root = null;
@@ -31,6 +31,10 @@ public class TestUtil {
 			testDataMap.put(entry.getKey().toString(), entry.getValue().getAsString());
 		}
 		return testDataMap;
+	}
+	
+	public void getTestDataFromExcel() {
+		
 	}
 	
 }
