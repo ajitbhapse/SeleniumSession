@@ -10,8 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 public class AddToCartPage {
 	
 	
-	AddToCartPage(WebDriver driver){
-		PageFactory.initElements(driver, AddToCartPage.class);
+	public AddToCartPage(WebDriver driver){
+		PageFactory.initElements(driver, this);
 	}
 	
 	@FindBy(xpath ="//button[@color='red' and @type='button']")

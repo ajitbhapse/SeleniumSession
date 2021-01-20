@@ -8,14 +8,19 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ProductSearchPage {
 	
+	WebDriver driver;
 	
-	ProductSearchPage (WebDriver driver){
-		PageFactory.initElements(driver, ProductSearchPage.class);
+	public 	ProductSearchPage (WebDriver driver) {
+		 this.driver = driver;
+		 PageFactory.initElements(driver, this);
 	}
 	
 	
 	@FindBy(xpath ="//input[@placeholder='Search Products']")
 	private WebElement textSearchProducts;
+	
+	@FindBy(xpath="//div[@class='w-full h-full flex flex-row items-center justify-between']")
+	private WebElement searchBox;
 	
 	
 	/**
@@ -23,6 +28,7 @@ public class ProductSearchPage {
 	 * @param text
 	 */
 	public void enterSearchProducts(String text) {
+		searchBox.click();
 		textSearchProducts.click();
 		textSearchProducts.clear();
 		textSearchProducts.sendKeys(text);

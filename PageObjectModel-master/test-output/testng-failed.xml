@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.TestBookFlightTicket">
+      <class name="com.crm.qa.testcases.TestAddProductToCart">
         <methods>
-          <include name="quite"/>
-          <include name="verifyTicketBooking"/>
+          <include name="endTest"/>
+          <include name="addProductToCart"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.TestBookFlightTicket -->
+      </class> <!-- com.crm.qa.testcases.TestAddProductToCart -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

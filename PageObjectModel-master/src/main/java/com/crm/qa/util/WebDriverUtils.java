@@ -13,7 +13,7 @@ public class WebDriverUtils {
 	
 	public static org.apache.logging.log4j.Logger log = LogManager.getLogger(TestBase.class.getName());
 	
-	public static ThreadLocal <WebDriver> driver = new ThreadLocal();
+	private static ThreadLocal <WebDriver> driver = new ThreadLocal();
 	public static Properties prop;
 	public final static int MAXWAITTIME = 30;
 	public static long PAGE_LOAD_TIMEOUT = 120;

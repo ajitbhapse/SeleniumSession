@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CatalogPage {
 	
 	
-	CatalogPage(WebDriver driver){
+	public CatalogPage(WebDriver driver){
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -27,6 +27,7 @@ public class CatalogPage {
 			String prdName = webElement.getText();
 			if(prdName.equalsIgnoreCase(productName)) {
 				webElement.click();
+				break;
 			}
 		}
 	}
