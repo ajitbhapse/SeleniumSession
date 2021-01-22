@@ -15,6 +15,13 @@ public class TestUtil {
 	
 	public static final String TESTDATA_FOLDER_PATH = "C:\\Azure_Devops\\PageObjectModel-master\\src\\main\\resources\\testdata\\";
 	//Method to read test data for test case.
+	/**
+	 * 
+	 * @param filePath : json file name e.g TestSerachProduct.json
+	 * @param elementName : node inside json file e.g testAddProductToWishList
+	 * @return
+	 */
+	
 	public static Map<String,String> getTestData(String filePath, String elementName) {
 		JsonElement root = null;
 		try {

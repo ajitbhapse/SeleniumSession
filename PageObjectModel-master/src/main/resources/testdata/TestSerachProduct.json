@@ -1,0 +1,9 @@
+{
+	
+	"testAddProductToWishList": {
+		"email" : "abc@gmail.com",
+		"password" : "test",
+		"productName" : "macbook",
+		"successMessage" : "Success: You have added MacBook Pro to your wish list!"
+	}
+}

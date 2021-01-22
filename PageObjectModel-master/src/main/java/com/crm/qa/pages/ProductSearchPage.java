@@ -1,45 +1,63 @@
 package com.crm.qa.pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProductSearchPage {
+import com.crm.qa.base.BasePage;
+
+public class ProductSearchPage extends BasePage{
 	
 	WebDriver driver;
 	
-	public 	ProductSearchPage (WebDriver driver) {
-		 this.driver = driver;
+	public 	ProductSearchPage (WebDriver driver) { 
+		 super(driver);
 		 PageFactory.initElements(driver, this);
 	}
 	
 	
-	@FindBy(xpath ="//input[@placeholder='Search Products']")
+	@FindBy(xpath ="//input[@placeholder='Search']")
 	private WebElement textSearchProducts;
 	
-	@FindBy(xpath="//div[@class='w-full h-full flex flex-row items-center justify-between']")
-	private WebElement searchBox;
+	@FindBy(xpath="//button[@class='btn btn-default btn-lg']")
+	private WebElement btnSearch;
+	
+	@FindBy(xpath="//a[text()='MacBook Pro']//ancestor::div[@class='caption']//following-sibling::div//child::button[@data-original-title='Add to Wish List']")
+	private WebElement btnAddToWishList;
+	
+	@FindBy(xpath ="//div[@class='alert alert-success alert-dismissible']")
+	private WebElement msgAlertSuccess;
 	
 	
 	/**
-	 * Enter value in search product text box
-	 * @param text
+	 * product search
 	 */
-	public void enterSearchProducts(String text) {
-		searchBox.click();
-		textSearchProducts.click();
-		textSearchProducts.clear();
-		textSearchProducts.sendKeys(text);
+	
+	public void enterProductToBeSearch(String value) {
+		sendKeys(textSearchProducts,value);
 	}
+	
 	/**
-	 * perform click on keyboard Enter key
+	 * click on product search button
 	 */
-	public void pressEnterButton() {
-		textSearchProducts.sendKeys(Keys.ENTER);		
+	
+	public void clickOnProductSearch() {
+		click(btnSearch);
 	}
 	
+	/**
+	 * add to wish list
+	 */
+	public void addProductToWishList() {
+		click(btnAddToWishList);
+	}
 	
-
+	/**
+	 * get webElement text
+	 * @return
+	 */
+	public String getText() {
+		return msgAlertSuccess.getText();
+	}
 }

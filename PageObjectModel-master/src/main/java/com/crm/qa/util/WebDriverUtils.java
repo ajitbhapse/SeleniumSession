@@ -7,11 +7,11 @@ import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.crm.qa.base.TestBase;
+import com.crm.qa.base.BasePage;
 
 public class WebDriverUtils {
 	
-	public static org.apache.logging.log4j.Logger log = LogManager.getLogger(TestBase.class.getName());
+	public static org.apache.logging.log4j.Logger log = LogManager.getLogger(BasePage.class.getName());
 	
 	private static ThreadLocal <WebDriver> driver = new ThreadLocal();
 	public static Properties prop;
