@@ -6,9 +6,4 @@
       <class name="com.crm.qa.testcases.TestBookFlightTicket"/>
     </classes>
   </test> <!-- Test -->
-  <test  name="Test_01">
-    <classes>
-      <class name="com.crm.qa.testcases.TestBookFlightTicket"/>
-    </classes>
-  </test> <!-- Test -->
 </suite> <!-- Suite -->
