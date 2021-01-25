@@ -43,6 +43,16 @@ public class BasePage {
 		elem.click();
 	}
 	
+	/**
+	 * submit on webElement
+	 */
+	
+	public void submit(WebElement elem) {
+		waitTillElementIsVisible(elem);
+		waitTillElementIsClickable(elem);
+		elem.submit();
+	}
+	
 	
 	/**
 	 * enter text in textbox

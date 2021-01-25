@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,15 +23,15 @@ public class TestSerachProduct {
 		WebDriverUtils utils = new WebDriverUtils();
 		utils.initialization();
 		driver = utils.getDriver();
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterEmailAddress(WebDriverUtils.prop.getProperty("username"));
+		loginPage.enterPassword(WebDriverUtils.prop.getProperty("password"));
+		loginPage.clickBtnLogin();
 	}
 	
 	@Test
 	public void testAddProductToWishList() {
 		Map<String,String> testData = TestUtil.getTestData("TestSerachProduct.json", "testAddProductToWishList");
-		
-		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterEmailAddress(testData.get("email"));
-		
 		
 		ProductSearchPage productSearchPage = new ProductSearchPage(driver);
 		
@@ -44,9 +45,16 @@ public class TestSerachProduct {
 		productSearchPage.addProductToWishList();
 		
 		//get message
-		String msgSuccess = productSearchPage.getText();
+		String msgSuccess = productSearchPage.getText().replace("×", "");
 		
 		//verify success message 
 		Assert.assertEquals(msgSuccess, testData.get("successMessage"));
+		
 	}
+	
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
+	}
+	
 }
