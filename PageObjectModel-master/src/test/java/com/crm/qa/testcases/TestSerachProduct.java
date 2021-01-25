@@ -45,10 +45,10 @@ public class TestSerachProduct {
 		productSearchPage.addProductToWishList();
 		
 		//get message
-		String msgSuccess = productSearchPage.getText().replace("×", "");
+		String msgSuccess = productSearchPage.getText();
 		
 		//verify success message 
-		Assert.assertEquals(msgSuccess, testData.get("successMessage"));
+		Assert.assertEquals(msgSuccess.contains(testData.get("successMessage")), true, "actual and expected results are matching..");
 		
 	}
 	
